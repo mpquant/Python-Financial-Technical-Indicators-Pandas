@@ -1,40 +1,45 @@
-# MyTT
+# MyTT https://github.com/mpquant/Python-Financial-Technical-Indicators-Pandas/blob/main/MyTT.py
 Technical Indicators implemented in Python only using Numpy-Pandas as Magic - Very Very Fast! to Stock Market Financial Technical Analysis Python library
 
 # 
 ```python
-* def MA(S,N):                          
+
+# Core tools function
+ def MA(S,N):                          
     return pd.Series(S).rolling(N).mean().values   
 
-* def DIFF(S, N=1):         
+ def DIFF(S, N=1):         
     return pd.Series(S).diff(N)  
     
-* def STD(S,N):              
+ def STD(S,N):              
     return  pd.Series(S).rolling(N).std(ddof=0).values
 
-* def EMA(S,N):               # alpha=2/(span+1)    
+ def EMA(S,N):               # alpha=2/(span+1)    
     return pd.Series(S).ewm(span=N, adjust=False).mean().values  
 
-* def SMA(S, N, M=1):        #   alpha=1/(1+com)
+ def SMA(S, N, M=1):        #   alpha=1/(1+com)
     return pd.Series(S).ewm(com=N-M, adjust=True).mean().values     
 
-* def AVEDEV(S,N):          
+ def AVEDEV(S,N):          
     return pd.Series(S).rolling(N).apply(lambda x: (np.abs(x - x.mean())).mean()).values 
 
-* def IF(S_BOOL,S_TRUE,S_FALSE):  
+ def IF(S_BOOL,S_TRUE,S_FALSE):  
     return np.where(S_BOOL, S_TRUE, S_FALSE)
 
-* def SUM(S, N):                   
+ def SUM(S, N):                   
     return pd.Series(S).rolling(N).sum().values if N>0 else pd.Series(S).cumsum()  
 
-* def HHV(S,N):                   
+ def HHV(S,N):                   
     return pd.Series(S).rolling(N).max().values     
 
-* def LLV(S,N):            
+ def LLV(S,N):            
     return pd.Series(S).rolling(N).min().values    
 ```    
 
 ```python
+
+# Technical Indicators oney use core tools function
+
 def MACD(CLOSE,SHORT=12,LONG=26,M=9):             
     DIF = EMA(CLOSE,SHORT)-EMA(CLOSE,LONG);  
     DEA = EMA(DIF,M);      MACD=(DIF-DEA)*2
