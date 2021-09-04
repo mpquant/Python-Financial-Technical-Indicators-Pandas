@@ -2,6 +2,7 @@
 Technical Indicators implemented in Python only using Numpy-Pandas as Magic - Very Very Fast! to Stock Market Financial Technical Analysis Python library
 
 # 
+```python
 * def MA(S,N):                          
     return pd.Series(S).rolling(N).mean().values   
 
@@ -31,6 +32,7 @@ Technical Indicators implemented in Python only using Numpy-Pandas as Magic - Ve
 
 * def LLV(S,N):            
     return pd.Series(S).rolling(N).min().values    
+```    
 
 ```python
 def MACD(CLOSE,SHORT=12,LONG=26,M=9):             
