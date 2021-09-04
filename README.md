@@ -161,6 +161,10 @@ HIGH=df.high.values;    LOW=df.low.values             #or  CLOSE=list(df.close)
 MA5=MA(CLOSE,5)                                       
 MA10=MA(CLOSE,10)                                     
 
+RSI12=RSI(CLOSE,12)
+CCI12=CCI(CLOSE,12)
+ATR20=ATR(CLOSE,HIGH,LOW, N=20)
+
 print('BTC5 MA5', MA5[-1] )                         
 print('BTC MA10,RET(MA10))                         # RET(MA10) == MA10[-1]
 print('today ma5 coross ma10? ',RET(CROSS(MA5,MA10)))
