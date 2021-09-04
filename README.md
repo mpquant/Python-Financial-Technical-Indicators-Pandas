@@ -1,4 +1,4 @@
-# MyTT https://github.com/mpquant/Python-Financial-Technical-Indicators-Pandas/blob/main/MyTT.py
+# [MyTT] (https://github.com/mpquant/Python-Financial-Technical-Indicators-Pandas/blob/main/MyTT.py)
 Technical Indicators implemented in Python only using Numpy-Pandas as Magic - Very Very Fast! to Stock Market Financial Technical Analysis Python library
 
 # 
