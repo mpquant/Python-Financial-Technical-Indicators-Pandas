@@ -1,9 +1,15 @@
 # MyTT
 Technical Indicators implemented in Python only using Numpy-Pandas as Magic - Very Very Fast! to Stock Market Financial Technical Analysis Python library
  [MyTT.py](https://github.com/mpquant/Python-Financial-Technical-Indicators-Pandas/blob/main/MyTT.py)
- 
+
+# Features
+
+* Calculate technical indicators (Most of the indicators supported)
+* Produce graphs for any technical indicator
 * Mytt is very fast and simple， Not need install Ta-lib (talib)
 * Mytt is very pure,only use numpy and pandas even not "for in " in the code
+* Trading automation on cryptocoin exchange like BTC
+
 
 ```python
 
@@ -167,12 +173,12 @@ def OBV(CLOSE,VOL):
 
 ```
 
-### Example
+### Usage Example
 
 ```python
 
-from  hb_hq_api import *         # btc data
-from  MyTT import *              
+from  hb_hq_api import *         #  btc day data on Huobi cryptocoin exchange 
+from  MyTT import *              #  to import lib
 
 df=get_price('btc.usdt',count=120,frequency='1d');     #'1d'=1day , '4h'=4hour
 
@@ -207,7 +213,7 @@ print('every close price> ma10? ',EVERY(CLOSE>MA10,5) )
 ```
 
 
-### python lib to install 
+### python lib need to install 
 * pandas numpy
  
 ----------------------------------------------------
