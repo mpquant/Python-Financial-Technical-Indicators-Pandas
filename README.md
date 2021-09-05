@@ -195,8 +195,10 @@ df=get_price('btc.usdt',count=120,frequency='1d');     #'1d'=1day , '4h'=4hour
 
 ```python
 
-CLOSE=df.close.values;  OPEN=df.open.values           
-HIGH=df.high.values;    LOW=df.low.values             #or  CLOSE=list(df.close)
+CLOSE=df.close.values     #or  CLOSE=list(df.close)
+OPEN =df.open.values           
+HIGH =df.high.values    
+LOW = df.low.values            
 
 MA5=MA(CLOSE,5)                                       
 MA10=MA(CLOSE,10)                                     
@@ -218,8 +220,10 @@ print('every close price> ma10? ',EVERY(CLOSE>MA10,5) )
 up,mid,lower=BOLL(CLOSE)                                       
 
 plt.figure(figsize=(15,8))  
-plt.plot(CLOSE,label='shanghai');    plt.plot(up,label='up');        
-plt.plot(mid,label='mid');      plt.plot(lower,label='lower');
+plt.plot(CLOSE,label='shanghai');
+plt.plot(up,label='up');        
+plt.plot(mid,label='mid'); 
+plt.plot(lower,label='lower');
 
 ```
 <div  align="center"> <img src="/img/boll.png" width = "960" height = "400" alt="Boll" /> </div>
