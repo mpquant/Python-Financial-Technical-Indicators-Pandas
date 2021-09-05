@@ -7,7 +7,8 @@ Technical Indicators implemented in Python only using Numpy-Pandas as Magic - Ve
 
 ```python
 
-# Core tools function
+#  ----- 0 level：core tools function ---------
+
  def MA(S,N):                          
     return pd.Series(S).rolling(N).mean().values   
 
@@ -41,7 +42,40 @@ Technical Indicators implemented in Python only using Numpy-Pandas as Magic - Ve
 
 ```python
 
-# Technical Indicators oney use core tools function
+#-----   1 level： Logic and Statistical function  (only use 0 level function to implemented） -----
+
+def COUNT(S_BOOL, N):                  # COUNT(CLOSE>O, N): 
+    return SUM(S_BOOL,N)    
+
+def EVERY(S_BOOL, N):                  # EVERY(CLOSE>O, 5)  
+    R=SUM(S_BOOL, N)
+    return  IF(R==N, True, False)
+  
+def LAST(S_BOOL, A, B):                   
+    if A<B: A=B                        #LAST(CLOSE>OPEN,5,3)  
+    return S_BOOL[-A:-B].sum()==(A-B)    
+
+def EXIST(S_BOOL, N=5):                # EXIST(CLOSE>3010, N=5) 
+    R=SUM(S_BOOL,N)    
+    return IF(R>0, True ,False)
+
+def BARSLAST(S_BOOL):                  
+    M=np.argwhere(S_BOOL);             # BARSLAST(CLOSE/REF(CLOSE)>=1.1) 
+    return len(S_BOOL)-int(M[-1])-1  if M.size>0 else -1
+
+def FORCAST(S,N):                      
+    K,Y=SLOPE(S,N,RS=True)
+    return Y[-1]+K
+  
+def CROSS(S1,S2):                      #GoldCross CROSS(MA(C,5),MA(C,10))    DieCross CROSS(MA(C,10),MA(C,5))
+    CROSS_BOOL=IF(S1>S2, True ,False) 
+    return (COUNT(CROSS_BOOL>0,2)==1)*CROSS_BOOL
+
+```
+
+```python
+
+# ------ Technical Indicators  ( 2 level only use 0 level core functions) --------------
 
 def MACD(CLOSE,SHORT=12,LONG=26,M=9):             
     DIF = EMA(CLOSE,SHORT)-EMA(CLOSE,LONG);  
