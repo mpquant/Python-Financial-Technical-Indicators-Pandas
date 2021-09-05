@@ -212,6 +212,18 @@ print('every close price> ma10? ',EVERY(CLOSE>MA10,5) )
 
 ```
 
+### BOLL and  graphs
+
+```python
+up,mid,lower=BOLL(CLOSE)                                       
+
+plt.figure(figsize=(15,8))  
+plt.plot(CLOSE,label='shanghai');    plt.plot(up,label='up');        
+plt.plot(mid,label='mid');      plt.plot(lower,label='lower');
+
+```
+<div  align="center"> <img src="/img/boll.png" width = "960" height = "400" alt="Boll" /> </div>
+
 
 ### python lib need to install 
 * pandas numpy
