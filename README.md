@@ -6,8 +6,8 @@ Technical Indicators implemented in Python only using Numpy-Pandas as Magic - Ve
 
 * Calculate technical indicators (Most of the indicators supported)
 * Produce graphs for any technical indicator
-* Mytt is very fast and simple，pure numpy and pandas implemented, not need install Ta-lib (talib)
-* Mytt is very pure,only use numpy and pandas even not "for in " in the code
+* MyTT is very fast and simple，pure numpy and pandas implemented, not need install Ta-lib (talib)
+* MyTT is very simple,only use numpy and pandas even not "for in " in the code
 * Trading automation on cryptocoin exchange like BTC
 * Chinese version MyTT Url: https://github.com/mpquant/MyTT
 
