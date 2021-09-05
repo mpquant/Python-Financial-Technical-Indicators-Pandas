@@ -73,8 +73,8 @@ def FORCAST(S,N):
     K,Y=SLOPE(S,N,RS=True)
     return Y[-1]+K
   
-def CROSS(S1,S2):                      #GoldCross CROSS(MA(C,5),MA(C,10))    DieCross CROSS(MA(C,10),MA(C,5))
-    CROSS_BOOL=IF(S1>S2, True ,False) 
+def CROSS(S1,S2):                      # GoldCross CROSS(MA(C,5),MA(C,10))  
+    CROSS_BOOL=IF(S1>S2, True ,False)  # DieCross CROSS(MA(C,10),MA(C,5))
     return (COUNT(CROSS_BOOL>0,2)==1)*CROSS_BOOL
 
 ```
