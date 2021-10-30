@@ -35,8 +35,8 @@ def LLV(S,N):
 def EMA(S,N):             #   alpha=2/(span+1)    
     return pd.Series(S).ewm(span=N, adjust=False).mean().values     
 
-def SMA(S, N, M=1):        #  alpha=1/(1+com)
-    return pd.Series(S).ewm(com=N-M, adjust=True).mean().values     
+def SMA(S, N, M=1):        #  alpha=1/(1+com)    
+    return pd.Series(S).ewm(alpha=M/N,adjust=True).mean().values 
 
 def AVEDEV(S,N):           
     return pd.Series(S).rolling(N).apply(lambda x: (np.abs(x - x.mean())).mean()).values 
